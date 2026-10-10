@@ -10,11 +10,9 @@ export const profile = {
   email: "rohitgaikwadstud@gmail.com",
   phone: "+91 8767378324",
 
-  // TODO: your resume has LinkedIn / GitHub as hidden hyperlinks, so the URLs
-  // could not be read. Paste them here (e.g. "https://github.com/yourname").
-  // While empty, the buttons are simply hidden.
-  github: "",
-  linkedin: "",
+  // Social links. If you empty one, its button is hidden.
+  github: "https://github.com/rxhit17",
+  linkedin: "https://www.linkedin.com/in/rohit-gaikwad-404700281",
 
   // TODO: location is not in your resume. Add e.g. "Navi Mumbai, India" to show it.
   location: "",
