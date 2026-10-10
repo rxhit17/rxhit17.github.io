@@ -1,0 +1,91 @@
+.techstack {
+  width: 90%;
+  max-width: 1700px;
+  margin: 0 auto;
+  padding: 100px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.techstack h2 {
+  font-size: 70px;
+  line-height: 1.1;
+  font-weight: 500;
+  margin: 0 0 60px;
+}
+
+.techstack h2 > span {
+  color: var(--accentColor);
+}
+
+.techstack-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.techstack-card {
+  padding: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.techstack-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accentColor);
+}
+
+.techstack-card h3 {
+  margin: 0 0 18px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accentColor);
+}
+
+.techstack-card ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.techstack-card li {
+  font-size: 15px;
+  padding: 4px 12px;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+@media only screen and (max-width: 1400px) {
+  .techstack h2 {
+    font-size: 50px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .techstack {
+    padding: 60px 0;
+  }
+
+  .techstack h2 {
+    font-size: 40px;
+    margin-bottom: 30px;
+  }
+
+  .techstack-card {
+    padding: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .techstack-card {
+    transition: none;
+  }
+}

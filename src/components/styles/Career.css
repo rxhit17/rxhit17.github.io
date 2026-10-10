@@ -1,0 +1,454 @@
+.career-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 100px 0px;
+}
+
+.career-section h2 {
+  font-size: 70px;
+  line-height: 70px;
+  font-weight: 400;
+  text-align: center;
+  background: linear-gradient(0deg, #0d9488, #ffffff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  margin-top: 50px;
+  margin-bottom: 90px;
+}
+
+.career-section h2>span {
+  font-family: "Geist", sans-serif;
+  font-weight: 300;
+}
+
+.career-container {
+  width: 90%;
+  max-width: 1700px;
+  margin: 0 auto;
+}
+
+.career-info {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-left: 80px;
+}
+
+/* Certifications-specific overrides: use left-side dot layout */
+.cert-info {
+  padding-left: 35px;
+}
+
+.cert-timeline {
+  left: 0 !important;
+  transform: none !important;
+}
+
+
+.career-info-box {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 60px;
+}
+
+.career-info-box p {
+  width: 40%;
+  font-size: 18px;
+  font-weight: 300;
+  margin: 0;
+}
+
+.career-info-in {
+  display: flex;
+  width: 40%;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.career-info h3 {
+  font-size: 48px;
+  margin: 0;
+  font-weight: 500;
+  line-height: 45px;
+}
+
+.career-info h4 {
+  font-size: 33px;
+  line-height: 30px;
+  letter-spacing: 0.8px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.career-info h5 {
+  font-weight: 400;
+  letter-spacing: 0.7px;
+  font-size: 20px;
+  text-transform: capitalize;
+  margin: 10px 0px;
+  color: var(--accentColor);
+}
+
+/* Grouped Role Styles (Row Based) */
+.company-group {
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  width: 100%;
+}
+
+.company-header {
+  margin-bottom: 30px;
+}
+
+.company-header h3 {
+  font-size: 38px !important;
+  color: var(--accentColor);
+  margin: 0 !important;
+  text-align: left !important;
+}
+
+.company-header h5 {
+  font-size: 16px !important;
+  color: #a1a1aa !important;
+  margin: 5px 0 !important;
+  text-align: left !important;
+  text-transform: none !important;
+}
+
+.experience-list {
+  width: 100%;
+}
+
+.experience-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.exp-left {
+  width: 50%;
+  position: relative;
+  padding-left: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.exp-right {
+  width: 50%;
+  padding-left: 40px;
+  /* Start right where the center line is */
+  display: flex;
+  align-items: center;
+}
+
+.role-dot {
+  position: absolute;
+  left: 0px;
+  top: 10px;
+  width: 12px;
+  height: 12px;
+  background-color: #27272a;
+  /* Darker center */
+  border: 2px solid #52525b;
+  /* LinkedIn grey border */
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.role-connector {
+  position: absolute;
+  left: 5px;
+  /* Centered with 12px dot */
+  top: 22px;
+  width: 2px;
+  height: calc(100% + 40px);
+  /* Extends to next row */
+  background-color: #3f3f46;
+  /* Clean vertical line */
+  z-index: 1;
+}
+
+.role-meta h4 {
+  width: auto !important;
+  line-height: 1.25 !important;
+  font-size: 22px !important;
+  color: #fff;
+  margin: 0 !important;
+}
+
+.role-meta h5 {
+  font-size: 16px !important;
+  color: #a1a1aa !important;
+  margin: 4px 0 !important;
+  text-transform: none !important;
+}
+
+.role-date {
+  font-size: 14px !important;
+  color: #a1a1aa !important;
+  margin: 0 !important;
+}
+
+.exp-right p {
+  width: 100% !important;
+  font-size: 19px !important;
+  line-height: 30px !important;
+  color: #e4e4e7 !important;
+  margin: 0 !important;
+  text-align: left;
+  /* Cleaner lines than justify for shorter paragraphs */
+}
+
+.cert-view-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 15px;
+  color: var(--accentColor);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.cert-view-link:hover {
+  opacity: 0.75;
+  color: var(--accentColor);
+}
+
+#certifications .exp-right {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.career-timeline {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 100%;
+  background-image: linear-gradient(to top,
+      #14b8a6 20%,
+      var(--accentColor) 50%,
+      transparent 95%);
+  max-height: 0%;
+}
+
+.career-dot {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  background-color: #14b8a6;
+  width: 10px;
+  height: 10px;
+  border-radius: 50px;
+  box-shadow: 0px 0px 5px 2px #67e8f9, 0px 0px 15px 8px #5eead4,
+    0px 0px 110px 20px #a5f3fc;
+  animation: timeline 0.8s linear infinite forwards;
+}
+
+@keyframes timeline {
+
+  10%,
+  20%,
+  50%,
+  70%,
+  90% {
+    box-shadow: 0px 0px 5px 2px #67e8f9;
+  }
+
+  10%,
+  30%,
+  0%,
+  100%,
+  64%,
+  80% {
+    box-shadow: 0px 0px 5px 2px #67e8f9, 0px 0px 15px 5px #5eead4,
+      0px 0px 110px 20px #a5f3fc;
+  }
+}
+
+@keyframes timeline2 {
+  0% {
+    box-shadow: 0px 0px 5px 2px #67e8f9;
+  }
+
+  100% {
+    box-shadow: 0px 0px 5px 2px #67e8f9, 0px 0px 15px 5px #5eead4,
+      0px 0px 110px 20px #a5f3fc;
+  }
+}
+
+@media only screen and (max-width: 1400px) {
+  .career-section h2 {
+    font-size: 50px;
+    line-height: 50px;
+  }
+
+  .career-info h4 {
+    font-size: 22px;
+    line-height: 24px;
+    width: 180px;
+  }
+
+  .career-info h5 {
+    font-size: 17px;
+  }
+
+  .career-info h3 {
+    font-size: 40px;
+  }
+
+  .career-info-box p {
+    font-size: 14px;
+  }
+
+  .career-info-in {
+    width: 45%;
+    gap: 20px;
+  }
+
+  .career-info-box p {
+    width: 45%;
+  }
+}
+
+@media only screen and (max-width: 1025px) {
+  .career-section {
+    padding: 70px 0px;
+    padding-top: 220px;
+    margin-top: -200px;
+    margin-bottom: 0;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .career-info-box {
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 70px;
+  }
+
+  .career-info-box p {
+    width: 100%;
+    padding-left: 10%;
+    box-sizing: border-box;
+  }
+
+  .experience-row {
+    flex-direction: column;
+    margin-bottom: 50px;
+  }
+
+  .exp-left {
+    width: 100%;
+    padding-left: 30px;
+    margin-bottom: 10px;
+  }
+
+  .exp-right {
+    width: 100%;
+    padding-left: 30px;
+  }
+
+  .role-connector {
+    top: 30px;
+  }
+
+  .career-timeline {
+    left: 0%;
+  }
+
+  .career-container {
+    width: calc(100% - 25px);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .career-info {
+    margin: 0;
+  }
+
+  .career-section h2 {
+    width: 100%;
+    font-size: 45px;
+    line-height: 45px;
+    margin-top: 0px;
+  }
+
+  .career-info-in {
+    gap: 0px;
+  }
+
+  .career-info h3 {
+    font-size: 33px;
+  }
+
+  .career-info-in,
+  .career-info-box p {
+    padding-left: 5%;
+  }
+
+  .career-section {
+    padding-top: 90px;
+    margin-top: -70px;
+
+    align-items: start;
+    place-items: inherit;
+    justify-content: left;
+  }
+}
+
+/* ── Mobile: keep company/role text inside the screen ── */
+@media only screen and (max-width: 900px) {
+  .career-info {
+    padding-left: 24px;
+  }
+
+  .company-header h3 {
+    font-size: 28px !important;
+    overflow-wrap: anywhere;
+    line-height: 1.2 !important;
+  }
+
+  .company-header h5 {
+    overflow-wrap: anywhere;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .company-header h3 {
+    font-size: 24px !important;
+  }
+
+  .exp-right p {
+    font-size: 16px !important;
+    line-height: 26px !important;
+  }
+}
+
+
+.exp-left,
+.exp-right,
+.experience-row {
+  box-sizing: border-box;
+}
+
+@media only screen and (max-width: 900px) {
+  .exp-right {
+    padding-right: 8px;
+  }
+}
