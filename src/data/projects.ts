@@ -10,7 +10,19 @@ export type Project = {
   description: string;
   tools: string[];
   link?: string; // TODO: add a live/GitHub URL when you have one (none in resume)
+  // Full-length demo on YouTube (set the video to "Unlisted"). Paste the normal
+  // watch URL or just the 11-character ID. When set, it is used instead of the
+  // local demo.mp4. Example: youtube: "https://youtu.be/AbCdEfGhIjK"
+  youtube?: string;
 };
+
+// Accepts a full YouTube URL (watch / youtu.be / embed / shorts) or a bare ID.
+export function getYouTubeId(input?: string): string | null {
+  if (!input) return null;
+  const m = input.trim().match(/(?:v=|youtu\.be\/|embed\/|shorts\/)([\w-]{11})/);
+  if (m) return m[1];
+  return /^[\w-]{11}$/.test(input.trim()) ? input.trim() : null;
+}
 
 export const projects: Project[] = [
   {
@@ -21,6 +33,7 @@ export const projects: Project[] = [
     description:
       "A real-time voice agent that automates inbound and outbound customer calls end to end: speech in, LLM reasoning, speech out.",
     tools: ["Twilio", "Deepgram ASR", "OpenAI", "ElevenLabs TTS", "Docker", "Nginx/SSL", "VPS"],
+    youtube : "https://youtu.be/6SssZKUkwjA",
   },
   {
     slug: "enterprise-lms-ai-pipeline",
@@ -30,6 +43,7 @@ export const projects: Project[] = [
     description:
       "A GPU-local pipeline that understands documents and generates visuals and voice-over, turning source material into enterprise training videos.",
     tools: ["Python", "FastAPI", "Ollama", "Qwen3", "Kokoro", "LongCat", "FFmpeg"],
+    youtube : "https://youtu.be/v5sStSJyAoc?si=Mm8o_k0SSK06s-yA",
   },
   {
     slug: "whatsapp-automation-storytelling",
@@ -39,6 +53,7 @@ export const projects: Project[] = [
     description:
       "Automated WhatsApp replies for real-time customer queries, and a Gemini-based app that writes dynamic stories from user-defined characters.",
     tools: ["n8n", "WhatsApp Business API", "Google Gemini API", "Prompt Engineering"],
+    youtube : "https://youtu.be/Y5z8Z75xlB4",
   },
   {
     slug: "rag-chatbot-image-to-3d",

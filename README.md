@@ -56,7 +56,15 @@ What is shown, in order: video (if `demo.*` exists) -> screenshot/poster -> a cl
 
 To add a **new project**, add an object to the `projects` array in `src/data/projects.ts` and create `src/assets/projects/<new-slug>/`.
 
-### Recommended video specs
+### Full-length videos: use YouTube (free)
+For long or normal-speed demos, upload to YouTube as **Unlisted** and paste the link in `src/data/projects.ts`:
+
+```ts
+{ slug: "whatsapp-automation-storytelling", /* ... */ youtube: "https://youtu.be/XXXXXXXXXXX" },
+```
+When `youtube` is set it is used instead of the local `demo.mp4`. The page shows a thumbnail with a play button and only loads YouTube when someone clicks it (fast page, no tracking before the click).
+
+### Recommended video specs (for the local short clips)
 - 15-30 seconds, 720p (1280x720), no audio, **under about 3 MB**, 16:9.
 - MP4 (H.264) is the safest format.
 

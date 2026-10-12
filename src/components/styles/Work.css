@@ -383,7 +383,8 @@
   width: 100%;
   height: 100%;
   max-height: none;
-  object-fit: cover;
+  /* contain: never crop a screen recording (cover cut off the sides) */
+  object-fit: contain;
 }
 
 .work-placeholder {
@@ -451,4 +452,51 @@
   .carousel-number h3 {
     font-size: 28px;
   }
+}
+
+
+/* ── YouTube embed (thumbnail first, player loads on click) ── */
+.work-image iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.yt-facade {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: #000;
+  cursor: pointer;
+  display: block;
+}
+
+.work-image .yt-facade img {
+  object-fit: cover;
+}
+
+.yt-play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 68px;
+  height: 68px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  color: #000;
+  background: var(--accentColor);
+  box-shadow: 0 0 30px rgba(94, 234, 212, 0.5);
+  transition: transform 0.25s ease;
+}
+
+.yt-facade:hover .yt-play,
+.yt-facade:focus-visible .yt-play {
+  transform: translate(-50%, -50%) scale(1.1);
 }

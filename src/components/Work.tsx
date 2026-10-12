@@ -100,6 +100,7 @@ const Work = () => {
                         media={mediaBySlug[project.slug]}
                         title={project.title}
                         active={index === currentIndex}
+                        youtube={project.youtube}
                       />
                     </div>
                   </div>

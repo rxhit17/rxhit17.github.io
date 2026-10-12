@@ -1,16 +1,19 @@
 import { useEffect, useRef, useState } from "react";
-import { MdOutlineVideoLibrary } from "react-icons/md";
-import { ProjectMedia } from "../data/projects";
+import { MdOutlineVideoLibrary, MdPlayArrow } from "react-icons/md";
+import { ProjectMedia, getYouTubeId } from "../data/projects";
 
 interface Props {
   media: ProjectMedia;
   title: string;
   active: boolean; // only the visible slide may load/play media
+  youtube?: string; // optional full-length demo on YouTube
 }
 
 // Shows, in order of preference: video (lazy, plays only when in view),
 // first screenshot, or a clean placeholder. Never renders a broken player.
-const WorkMedia = ({ media, title, active }: Props) => {
+const WorkMedia = ({ media, title, active, youtube }: Props) => {
+  const ytId = getYouTubeId(youtube);
+  const [ytPlaying, setYtPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [inView, setInView] = useState(false);
   const [videoFailed, setVideoFailed] = useState(false);
@@ -39,8 +42,41 @@ const WorkMedia = ({ media, title, active }: Props) => {
     }
   }, [active, inView, reduceMotion]);
 
+  // Stop the YouTube player when the user moves to another slide.
+  useEffect(() => {
+    if (!active) setYtPlaying(false);
+  }, [active]);
+
   let content;
-  if (media.video && !videoFailed) {
+  if (ytId) {
+    // "Facade": a cheap thumbnail first; the heavy YouTube player only loads on click.
+    content = ytPlaying ? (
+      <iframe
+        src={`https://www.youtube-nocookie.com/embed/${ytId}?autoplay=1&rel=0&modestbranding=1`}
+        title={`${title} demo video`}
+        allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+        allowFullScreen
+      />
+    ) : (
+      <button
+        type="button"
+        className="yt-facade"
+        onClick={() => setYtPlaying(true)}
+        aria-label={`Play ${title} demo video`}
+        data-cursor="disable"
+      >
+        <img
+          src={media.poster ?? `https://i.ytimg.com/vi/${ytId}/hqdefault.jpg`}
+          alt=""
+          loading="lazy"
+          decoding="async"
+        />
+        <span className="yt-play">
+          <MdPlayArrow />
+        </span>
+      </button>
+    );
+  } else if (media.video && !videoFailed) {
     content = (
       <video
         ref={videoRef}
